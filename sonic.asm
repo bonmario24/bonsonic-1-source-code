@@ -108,8 +108,8 @@ loc_E0:
 	endif
 Console:	dc.b "SEGA MEGA DRIVE " ; Hardware system ID (Console name)
 Date:		dc.b "(C)SEGA 1991.APR" ; Copyright holder and release date (generally year)
-Title_Local:	dc.b "SONIC THE               HEDGEHOG                " ; Domestic name
-Title_Int:	dc.b "SONIC THE               HEDGEHOG                " ; International name
+Title_Local:	dc.b "BONSONIC THE               HEDGEHOG             " ; Domestic name
+Title_Int:	dc.b "BONSONIC THE               HEDGEHOG             " ; International name
 Serial:		if Revision=0
 		dc.b "GM 00001009-00"   ; Serial/version number (Rev 0)
 		else
@@ -2471,13 +2471,13 @@ LevSel_Ptrs:	if Revision=0
 ; Level	select codes
 ; ---------------------------------------------------------------------------
 LevSelCode_J:	if Revision=0
-		dc.b btnUp,btnDn,btnL,btnR,0,$FF
+		dc.b btnUp,btnDn,btnDn,btnR,btnR,0,$FF
 		else
-		dc.b btnUp,btnDn,btnDn,btnDn,btnL,btnR,0,$FF
+		dc.b btnUp,btnDn,btnDn,btnR,btnR,0,$FF
 		endc
 		even
 
-LevSelCode_US:	dc.b btnUp,btnDn,btnL,btnR,0,$FF
+LevSelCode_US:	dc.b btnUp,btnDn,btnDn,btnR,btnR,0,$FF
 		even
 ; ===========================================================================
 
@@ -7008,6 +7008,7 @@ MusicList2:
 ; ---------------------------------------------------------------------------
 
 Sonic_MdNormal:
+
 		bsr.w	Sonic_Jump
 		bsr.w	Sonic_SlopeResist
 		bsr.w	Sonic_Move
